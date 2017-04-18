@@ -65,6 +65,33 @@
 
         <li>
 
+            <a class="apidocElementLiA" href="#apidoc.element.vinyl-fs.filterSince">
+            function <span class="apidocSignatureSpan">vinyl-fs.</span>filterSince
+            <span class="apidocSignatureSpan">(d)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vinyl-fs.prepareWrite">
+            function <span class="apidocSignatureSpan">vinyl-fs.</span>prepareWrite
+            <span class="apidocSignatureSpan">(outFolder, file, opt, cb)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vinyl-fs.sink">
+            function <span class="apidocSignatureSpan">vinyl-fs.</span>sink
+            <span class="apidocSignatureSpan">(stream)</span>
+            </a>
+
+        </li>
+
+        <li>
+
             <a class="apidocElementLiA" href="#apidoc.element.vinyl-fs.src">
             function <span class="apidocSignatureSpan">vinyl-fs.</span>src
             <span class="apidocSignatureSpan">(glob, opt)</span>
@@ -84,6 +111,19 @@
         <li>
 
             <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">vinyl-fs.</span>fileOperations</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vinyl-fs.dest">module vinyl-fs.dest</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vinyl-fs.dest.dest">
+            function <span class="apidocSignatureSpan">vinyl-fs.</span>dest
+            <span class="apidocSignatureSpan">(outFolder, opt)</span>
+            </a>
 
         </li>
 
@@ -141,6 +181,71 @@
             <a class="apidocElementLiA" href="#apidoc.element.vinyl-fs.fileOperations.writeFile">
             function <span class="apidocSignatureSpan">vinyl-fs.fileOperations.</span>writeFile
             <span class="apidocSignatureSpan">(path, data, options, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vinyl-fs.filterSince">module vinyl-fs.filterSince</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vinyl-fs.filterSince.filterSince">
+            function <span class="apidocSignatureSpan">vinyl-fs.</span>filterSince
+            <span class="apidocSignatureSpan">(d)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vinyl-fs.prepareWrite">module vinyl-fs.prepareWrite</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vinyl-fs.prepareWrite.prepareWrite">
+            function <span class="apidocSignatureSpan">vinyl-fs.</span>prepareWrite
+            <span class="apidocSignatureSpan">(outFolder, file, opt, cb)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vinyl-fs.sink">module vinyl-fs.sink</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vinyl-fs.sink.sink">
+            function <span class="apidocSignatureSpan">vinyl-fs.</span>sink
+            <span class="apidocSignatureSpan">(stream)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vinyl-fs.src">module vinyl-fs.src</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vinyl-fs.src.src">
+            function <span class="apidocSignatureSpan">vinyl-fs.</span>src
+            <span class="apidocSignatureSpan">(glob, opt)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.vinyl-fs.symlink">module vinyl-fs.symlink</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.vinyl-fs.symlink.symlink">
+            function <span class="apidocSignatureSpan">vinyl-fs.</span>symlink
+            <span class="apidocSignatureSpan">(outFolder, opt)</span>
             </a>
 
         </li>
@@ -220,6 +325,137 @@ vfs.src(['./js/**/*.js', '!./js/vendor/*.js'])
 
 Takes a glob string or an array of glob strings as the first argument and an options object as the second.
 ...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vinyl-fs.filterSince" id="apidoc.element.vinyl-fs.filterSince">
+        function <span class="apidocSignatureSpan">vinyl-fs.</span>filterSince
+        <span class="apidocSignatureSpan">(d)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">filterSince = function (d) {
+  var isValid = typeof d === 'number' ||
+    d instanceof Number ||
+    d instanceof Date;
+
+  if (!isValid) {
+    throw new Error('expected since option to be a date or a number');
+  }
+  return filter.obj(function(file) {
+    return file.stat &amp;&amp; file.stat.mtime &gt; d;
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vinyl-fs.prepareWrite" id="apidoc.element.vinyl-fs.prepareWrite">
+        function <span class="apidocSignatureSpan">vinyl-fs.</span>prepareWrite
+        <span class="apidocSignatureSpan">(outFolder, file, opt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function prepareWrite(outFolder, file, opt, cb) {
+  var options = assign({
+    cwd: process.cwd(),
+    mode: (file.stat ? file.stat.mode : null),
+    dirMode: null,
+    overwrite: true,
+  }, opt);
+  var overwrite = booleanOrFunc(options.overwrite, file);
+  options.flag = (overwrite ? 'w' : 'wx');
+
+  var cwd = path.resolve(options.cwd);
+  var outFolderPath = stringOrFunc(outFolder, file);
+  if (!outFolderPath) {
+    throw new Error('Invalid output folder');
+  }
+  var basePath = options.base ?
+    stringOrFunc(options.base, file) : path.resolve(cwd, outFolderPath);
+  if (!basePath) {
+    throw new Error('Invalid base option');
+  }
+
+  var writePath = path.resolve(basePath, file.relative);
+  var writeFolder = path.dirname(writePath);
+
+  // Wire up new properties
+  file.stat = (file.stat || new fs.Stats());
+  file.stat.mode = options.mode;
+  file.flag = options.flag;
+  file.cwd = cwd;
+  file.base = basePath;
+  file.path = writePath;
+
+  // Mkdirp the folder the file is going in
+  var mkdirpOpts = {
+    mode: options.dirMode,
+    fs: fs,
+  };
+  mkdirp(writeFolder, mkdirpOpts, function(err) {
+    if (err) {
+      return cb(err);
+    }
+    cb(null, writePath);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.vinyl-fs.sink" id="apidoc.element.vinyl-fs.sink">
+        function <span class="apidocSignatureSpan">vinyl-fs.</span>sink
+        <span class="apidocSignatureSpan">(stream)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function sink(stream) {
+  var sinkAdded = false;
+  var sinkStream = new Writable({
+    objectMode: true,
+    write: function(file, enc, cb) {
+      cb();
+    },
+  });
+
+  function addSink() {
+    if (sinkAdded) {
+      return;
+    }
+
+    if (hasListeners(stream)) {
+      return;
+    }
+
+    sinkAdded = true;
+    stream.pipe(sinkStream);
+  }
+
+  function removeSink(evt) {
+    if (evt !== 'readable' &amp;&amp; evt !== 'data') {
+      return;
+    }
+
+    if (hasListeners(stream)) {
+      sinkAdded = false;
+      stream.unpipe(sinkStream);
+    }
+  }
+
+  stream.on('newListener', removeSink);
+  stream.on('removeListener', removeSink);
+  stream.on('removeListener', addSink);
+
+  return addSink;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
     </ul>
 
 
@@ -347,6 +583,82 @@ Default: The `cwd` resolved to the folder path.
     </ul>
 
 
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vinyl-fs.dest" id="apidoc.module.vinyl-fs.dest">module vinyl-fs.dest</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vinyl-fs.dest.dest" id="apidoc.element.vinyl-fs.dest.dest">
+        function <span class="apidocSignatureSpan">vinyl-fs.</span>dest
+        <span class="apidocSignatureSpan">(outFolder, opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function dest(outFolder, opt) {
+  if (!opt) {
+    opt = {};
+  }
+
+  function saveFile(file, enc, cb) {
+    prepareWrite(outFolder, file, opt, function(err, writePath) {
+      if (err) {
+        return cb(err);
+      }
+      writeContents(writePath, file, cb);
+    });
+  }
+
+  var saveStream = through2.obj(opt, saveFile);
+  if (!opt.sourcemaps) {
+    // Sink the save stream to start flowing
+    // Do this on nextTick, it will flow at slowest speed of piped streams
+    process.nextTick(sink(saveStream));
+
+    return saveStream;
+  }
+
+  var sourcemapOpt = opt.sourcemaps;
+  if (typeof sourcemapOpt === 'boolean') {
+    sourcemapOpt = {};
+  }
+  if (typeof sourcemapOpt === 'string') {
+    sourcemapOpt = {
+      path: sourcemapOpt,
+    };
+  }
+
+  var mapStream = sourcemaps.write(sourcemapOpt.path, sourcemapOpt);
+  var outputStream = duplexify.obj(mapStream, saveStream);
+  mapStream.pipe(saveStream);
+
+  // Sink the output stream to start flowing
+  // Do this on nextTick, it will flow at slowest speed of piped streams
+  process.nextTick(sink(outputStream));
+
+  return outputStream;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var log = function(file, cb) {
+  console.log(file.path);
+  cb(null, file);
+};
+
+vfs.src(['./js/**/*.js', '!./js/vendor/*.js'])
+  .pipe(map(log))
+  .pipe(vfs.<span class="apidocCodeKeywordSpan">dest</span>('./output'));
+```
+
+## API
+
+### `src(globs[, options])`
+
+Takes a glob string or an array of glob strings as the first argument and an options object as the second.
+...</pre></li>
+    </ul>
 
 
 </div>
@@ -597,6 +909,286 @@ Default: The `cwd` resolved to the folder path.
   }
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vinyl-fs.filterSince" id="apidoc.module.vinyl-fs.filterSince">module vinyl-fs.filterSince</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vinyl-fs.filterSince.filterSince" id="apidoc.element.vinyl-fs.filterSince.filterSince">
+        function <span class="apidocSignatureSpan">vinyl-fs.</span>filterSince
+        <span class="apidocSignatureSpan">(d)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">filterSince = function (d) {
+  var isValid = typeof d === 'number' ||
+    d instanceof Number ||
+    d instanceof Date;
+
+  if (!isValid) {
+    throw new Error('expected since option to be a date or a number');
+  }
+  return filter.obj(function(file) {
+    return file.stat &amp;&amp; file.stat.mtime &gt; d;
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vinyl-fs.prepareWrite" id="apidoc.module.vinyl-fs.prepareWrite">module vinyl-fs.prepareWrite</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vinyl-fs.prepareWrite.prepareWrite" id="apidoc.element.vinyl-fs.prepareWrite.prepareWrite">
+        function <span class="apidocSignatureSpan">vinyl-fs.</span>prepareWrite
+        <span class="apidocSignatureSpan">(outFolder, file, opt, cb)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function prepareWrite(outFolder, file, opt, cb) {
+  var options = assign({
+    cwd: process.cwd(),
+    mode: (file.stat ? file.stat.mode : null),
+    dirMode: null,
+    overwrite: true,
+  }, opt);
+  var overwrite = booleanOrFunc(options.overwrite, file);
+  options.flag = (overwrite ? 'w' : 'wx');
+
+  var cwd = path.resolve(options.cwd);
+  var outFolderPath = stringOrFunc(outFolder, file);
+  if (!outFolderPath) {
+    throw new Error('Invalid output folder');
+  }
+  var basePath = options.base ?
+    stringOrFunc(options.base, file) : path.resolve(cwd, outFolderPath);
+  if (!basePath) {
+    throw new Error('Invalid base option');
+  }
+
+  var writePath = path.resolve(basePath, file.relative);
+  var writeFolder = path.dirname(writePath);
+
+  // Wire up new properties
+  file.stat = (file.stat || new fs.Stats());
+  file.stat.mode = options.mode;
+  file.flag = options.flag;
+  file.cwd = cwd;
+  file.base = basePath;
+  file.path = writePath;
+
+  // Mkdirp the folder the file is going in
+  var mkdirpOpts = {
+    mode: options.dirMode,
+    fs: fs,
+  };
+  mkdirp(writeFolder, mkdirpOpts, function(err) {
+    if (err) {
+      return cb(err);
+    }
+    cb(null, writePath);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vinyl-fs.sink" id="apidoc.module.vinyl-fs.sink">module vinyl-fs.sink</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vinyl-fs.sink.sink" id="apidoc.element.vinyl-fs.sink.sink">
+        function <span class="apidocSignatureSpan">vinyl-fs.</span>sink
+        <span class="apidocSignatureSpan">(stream)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function sink(stream) {
+  var sinkAdded = false;
+  var sinkStream = new Writable({
+    objectMode: true,
+    write: function(file, enc, cb) {
+      cb();
+    },
+  });
+
+  function addSink() {
+    if (sinkAdded) {
+      return;
+    }
+
+    if (hasListeners(stream)) {
+      return;
+    }
+
+    sinkAdded = true;
+    stream.pipe(sinkStream);
+  }
+
+  function removeSink(evt) {
+    if (evt !== 'readable' &amp;&amp; evt !== 'data') {
+      return;
+    }
+
+    if (hasListeners(stream)) {
+      sinkAdded = false;
+      stream.unpipe(sinkStream);
+    }
+  }
+
+  stream.on('newListener', removeSink);
+  stream.on('removeListener', removeSink);
+  stream.on('removeListener', addSink);
+
+  return addSink;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vinyl-fs.src" id="apidoc.module.vinyl-fs.src">module vinyl-fs.src</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vinyl-fs.src.src" id="apidoc.element.vinyl-fs.src.src">
+        function <span class="apidocSignatureSpan">vinyl-fs.</span>src
+        <span class="apidocSignatureSpan">(glob, opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function src(glob, opt) {
+  var options = assign({
+    read: true,
+    buffer: true,
+    stripBOM: true,
+    sourcemaps: false,
+    passthrough: false,
+    followSymlinks: true,
+  }, opt);
+
+  // Don't pass `read` option on to through2
+  var read = options.read !== false;
+  options.read = undefined;
+
+  var inputPass;
+
+  if (!isValidGlob(glob)) {
+    throw new Error('Invalid glob argument: ' + glob);
+  }
+
+  var globStream = gs.create(glob, options);
+
+  var outputStream = globStream
+    .pipe(wrapWithVinylFile(options));
+
+  if (options.since != null) {
+    outputStream = outputStream
+      .pipe(filterSince(options.since));
+  }
+
+  if (read) {
+    outputStream = outputStream
+      .pipe(getContents(options));
+  }
+
+  if (options.passthrough === true) {
+    inputPass = through2.obj(options);
+    outputStream = duplexify.obj(inputPass, merge(outputStream, inputPass));
+  }
+  if (options.sourcemaps === true) {
+    outputStream = outputStream
+      .pipe(sourcemaps.init({ loadMaps: true }));
+  }
+  globStream.on('error', outputStream.emit.bind(outputStream, 'error'));
+  return outputStream;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+var vfs = require('vinyl-fs');
+
+var log = function(file, cb) {
+  console.log(file.path);
+  cb(null, file);
+};
+
+vfs.<span class="apidocCodeKeywordSpan">src</span>(['./js/**/*.js', '!./js/vendor/*.js'])
+  .pipe(map(log))
+  .pipe(vfs.dest('./output'));
+```
+
+## API
+
+### `src(globs[, options])`
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.vinyl-fs.symlink" id="apidoc.module.vinyl-fs.symlink">module vinyl-fs.symlink</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.vinyl-fs.symlink.symlink" id="apidoc.element.vinyl-fs.symlink.symlink">
+        function <span class="apidocSignatureSpan">vinyl-fs.</span>symlink
+        <span class="apidocSignatureSpan">(outFolder, opt)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function symlink(outFolder, opt) {
+  function linkFile(file, enc, cb) {
+    var srcPath = file.path;
+    var symType = (file.isDirectory() ? 'dir' : 'file');
+    prepareWrite(outFolder, file, opt, function(err, writePath) {
+      if (err) {
+        return cb(err);
+      }
+      fs.symlink(srcPath, writePath, symType, function(err) {
+        if (err &amp;&amp; err.code !== 'EEXIST') {
+          return cb(err);
+        }
+        cb(null, file);
+      });
+    });
+  }
+
+  var stream = through2.obj(opt, linkFile);
+  // TODO: option for either backpressure or lossy
+  stream.resume();
+  return stream;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+Type: `String`
+
+Default: `process.cwd()`
+
+##### `options.base`
+
+The folder relative to the cwd. This is used to determine the file names when saving in `.<span class="apidocCodeKeywordSpan">symlink
+</span>()`. Can also be a function that takes in a file and returns a folder path.
+
+Type: `String` or `Function`
+
+Default: The `cwd` resolved to the folder path.
+
+##### `options.dirMode`
+...</pre></li>
     </ul>
 
 
