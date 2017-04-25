@@ -1,6 +1,6 @@
 # npmdoc-vinyl-fs
 
-#### api documentation for  [vinyl-fs (v2.4.4)](http://github.com/wearefractal/vinyl-fs)  [![npm package](https://img.shields.io/npm/v/npmdoc-vinyl-fs.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-vinyl-fs) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-vinyl-fs.svg)](https://travis-ci.org/npmdoc/node-npmdoc-vinyl-fs)
+#### basic api documentation for  [vinyl-fs (v2.4.4)](http://github.com/wearefractal/vinyl-fs)  [![npm package](https://img.shields.io/npm/v/npmdoc-vinyl-fs.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-vinyl-fs) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-vinyl-fs.svg)](https://travis-ci.org/npmdoc/node-npmdoc-vinyl-fs)
 
 #### Vinyl adapter for the file system
 
@@ -106,7 +106,8 @@
         "lint": "eslint . && jscs index.js lib/ test/",
         "test": "npm run lint && mocha"
     },
-    "version": "2.4.4"
+    "version": "2.4.4",
+    "bin": {}
 }
 ```
 
